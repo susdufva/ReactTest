@@ -1,0 +1,51 @@
+.Cards{
+    display: flex;
+    justify-content: center;
+}
+.Card2{
+    border: solid black 2px;
+    height: 350px;
+    width: 250px;
+    background-image: url(../img/barber-shop.jpg);
+    background-repeat: no-repeat;
+    background-size: 270px 350px;
+    margin: 40px;
+    color: white;
+    padding: 20px;
+    padding-top: 160px;
+}
+
+.Card3{
+    border: solid black 2px;
+    height: 350px;
+    width: 250px;
+    background-image: url(../img/spa.jpg);
+    background-repeat: no-repeat;
+    margin: 40px;
+    color: white;
+    padding: 20px;
+    padding-top: 160px;
+}
+.Card1{
+    border: solid black 2px;
+    height: 350px;
+    width: 250px;
+    background-image: url(../img/woman2.jpg);
+    background-repeat: no-repeat;
+    background-size: 270px 350px;
+    margin: 40px;
+    color: white;
+    padding: 20px;
+    padding-top: 160px;
+}
+.Massage{
+  
+    width: 150px;
+    height: 250px;
+}
+h2{
+    font-size: 30px;
+}
+p{
+    margin: 10px;
+}

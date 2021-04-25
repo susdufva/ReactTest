@@ -1,0 +1,11 @@
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    margin-top: 70px;
+    
+}
+.Form-button{
+    margin-left: 220px;
+}

@@ -1,0 +1,47 @@
+.Nav{
+    border-bottom: solid rgba(91, 144, 145, 0.171) 5px;
+    border-top: solid rgba(95, 158, 160, 0.637) 1px;
+    border-radius: 10px;
+    Color:  rgba(81, 157, 160, 0.87);
+    background-image: url(./img/logo4.png);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    background-position: 5px 14px;
+    height: 70px;
+    width: 98%;
+    margin: 9px;
+    display: flex;
+}
+.Link{
+    margin: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.Home:hover, .Fri:hover, .Mass:hover, .Book:hover, .Page:hover{
+    color: teal;
+}
+.Home{
+    margin-left: 100px;
+    margin-right: 20px;
+}
+.Fri{
+    margin: 20px;
+}
+.Mass{
+    margin: 20px;
+}
+.Booked{
+    margin: 20px;
+}
+.Book{
+    text-align: right;
+    justify-items: right;
+    margin-left: 160px;
+}
+.Page{
+    text-align: right;
+    justify-items: right;
+    margin-left: 30px;
+}

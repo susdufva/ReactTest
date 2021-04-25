@@ -1,0 +1,14 @@
+.Book-button{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.Bookings{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+h3{
+    margin: 30px;
+    text-align: center;
+}
