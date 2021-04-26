@@ -1,6 +1,6 @@
 .Nav{
     border-bottom: solid rgba(91, 144, 145, 0.171) 5px;
-    border-top: solid rgba(95, 158, 160, 0.521) 1px;
+    border-top: solid rgba(83, 143, 145, 0.432) 1px;
     border-radius: 8px;
     Color:  rgb(68, 68, 68);
     background-image: url(./img/logo4.png);
@@ -38,7 +38,7 @@
 .Book{
     text-align: right;
     justify-items: right;
-    margin-left: 160px;
+    margin-left: 200px;
 }
 .Page{
     text-align: right;

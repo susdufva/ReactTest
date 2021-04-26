@@ -11,7 +11,7 @@ function Nav() {
             <nav className="Link">
              {/* <img src={require("../picture.png")} alt=" "> */}
              <div className="no-underline text-grey-dark border-b-2 border-transparent uppercase tracking-wide font-bold py-3 mr-8">
-              <Link className="Home" to="/">Hemsida</Link>  
+              <Link className="Home" to="/">Hem</Link>  
               <Link className="Fri" to="/frisor">Frisör</Link> 
               <Link className="Mass" to="/massage">Massage</Link> 
               <Link className="Booked" to="/booked">Boka</Link> 
