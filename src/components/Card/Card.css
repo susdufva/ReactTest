@@ -38,6 +38,17 @@
     padding: 20px;
     padding-top: 160px;
 }
+.Card4{
+    border: solid black 2px;
+    height: 350px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: 270px 350px;
+    margin: 40px;
+    color: white;
+    padding: 20px;
+    padding-top: 10px;
+}
 .Massage{
   
     width: 150px;

@@ -1,18 +1,18 @@
 import React from 'react'
-import Card2 from "./Card/Card2"
-import Card3 from "./Card/Card3"
-import Card1 from "./Card/Card1"
 import "./Homepage.css";
+import Navbar from "./NavbarTailwind"
+import CardList from "./Card/Cardlist"
+import Upload from "./Upload"
 
 
 function Homepage() {
     return (
        <>
-       <div className="Homepage">
-        <Card1/>
-        <Card2/>
-        <Card3/>
-       </div>
+       <Navbar/>
+       <Upload/>
+       
+       <CardList/>
+     
      
        </>
     )
