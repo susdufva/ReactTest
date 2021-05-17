@@ -3,6 +3,7 @@ import Button from "./Button"
 import "./Booking.css"
 import Button2 from "./Button2"
 import {useHistory} from "react-router-dom";
+import Bookinglist from "./Bookinglist"
 
 const button = [
     {button:"Ändra / Avboka"} 
@@ -81,8 +82,8 @@ function Logout(){
      </div>
   </div>
   </div>   
- 
-  <div className="mt-20">
+  <Bookinglist/>
+  <div className="mt-20 m-6">
     <button onClick={Logout} className="px-5 py-2 bg-gray-700 hover:bg-gray-600 text-white tracking-wide text-xs font-medium uppercase rounded">
       Logga ut
     </button> 
