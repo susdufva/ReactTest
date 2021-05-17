@@ -21,8 +21,7 @@ function Navbar() {
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <Link to="/" className=" text-white px-3 py-0 rounded-md text-xl font-medium" >BOKA.SE</Link>
-                    
-                        <Link to="/frisor" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base font-medium">Frisör</Link>
+                        
                         <Link to="/uploadproduct" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base  font-medium">Ladda upp</Link>
                         <Link to="/booked" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base  font-medium">Boka</Link>
                         <Link to="/register" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base font-medium">Mina sidor</Link>

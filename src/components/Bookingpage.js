@@ -2,15 +2,26 @@ import React from 'react';
 import Button from "./Button"
 import "./Booking.css"
 import Button2 from "./Button2"
+import {useHistory} from "react-router-dom";
 
 const button = [
-    {button:"Ändra / Avboka"},
-    
+    {button:"Ändra / Avboka"} 
 ]
 
+const jwt = localStorage.getItem("jwt")
+
 function Bookingpage() {
+
+  const history = useHistory()
+
+function Logout(){
+  localStorage.removeItem("jwt");
+  history.push("/")
+
+}
     return (
         <>
+       
           <h3 className="uppercase tracking-wide text-gray-800 font-semibold py-2 ">Mina bokningar</h3>
             <div className="Bookings">
               <div className="min-h-screen-60 flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
@@ -68,10 +79,15 @@ function Bookingpage() {
          </div>
        </div>
      </div>
-     
-     
   </div>
+  </div>   
+ 
+  <div className="mt-20">
+    <button onClick={Logout} className="px-5 py-2 bg-gray-700 hover:bg-gray-600 text-white tracking-wide text-xs font-medium uppercase rounded">
+      Logga ut
+    </button> 
   </div>
+ 
 </>
     )
 }

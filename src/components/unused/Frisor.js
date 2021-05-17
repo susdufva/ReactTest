@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Card.css";
-import Card2 from "./Card2"
-import Card1 from "./Card1"
+import Card2 from "../Card/Card2"
+import Card1 from "../Card/Card1"
 
 function Frisor() {
     return (

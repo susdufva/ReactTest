@@ -3,8 +3,7 @@ import Bookingpage from "./Bookingpage";
 import Login from "./Login";
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Homepage from "./Homepage";
-import Nav from "./Nav"
-import Frisor from "./Card/Frisor"
+import Navbar from "./Navbar"
 import Massage from "./Card/Massage"
 import Booked from "./Booked"
 import Register from "./Register"
@@ -15,11 +14,10 @@ export default function AppRoute(){
     return(
     <>
     <Router>
-        <Nav/>
+        <Navbar/>
     <Switch>
         
         <Route path="/" exact component={Homepage} />
-        <Route path="/frisor" component={Frisor} />
         <Route path="/massage" component={Massage} />
         <Route path="/booked" component={Booked} />
         <Route path="/register" component={Register} />

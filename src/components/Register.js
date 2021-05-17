@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import {Link, useHistory} from "react-router-dom";
-import Login from "./Login"
+import Bookingpage from "./Bookingpage"
 
 function Register() {
 
@@ -12,8 +12,8 @@ function Register() {
     }
 
     const [registerValues, setRegisterValues] = useState(initialValue)
-    //const [loggedIn, setLoggedIn] = useState(false)
     const history = useHistory()
+    const jwt = localStorage.getItem("jwt")
 
     function handleOnChange(e) {
 
@@ -31,15 +31,15 @@ function Register() {
             password: registerValues.password,
             //promises iställer för async await
         }).then ( (e)=> {if(e.data.user) history.push("/login")
-            //setLoggedIn(true) 
+            
         }) 
         .catch((err) => {console.log(err.response)}) 
     }
 
     return (
         <>
-     {/*  {loggedIn ? (<div> <h3>Registrering lyckades //eller component för login </h3> Nu kan du <Link to="/login"><b>Logga in</b></Link> </div>) :(<div></div> )} */}
-      
+        {jwt ? <Bookingpage/>   : 
+
     <div className="flex flex-col h-screen">
     <div className="grid place-items-center mx-2 my-20 sm:my-auto">
         <div className="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
@@ -88,7 +88,7 @@ function Register() {
             </div>
                 <button type="submit"
                     className="w-full py-3 mt-4 bg-gray-800 
-                    font-medium text-white uppercase 
+                    font-medium tracking-wide text-white uppercase 
                     focus:outline-none hover:bg-gray-700 hover:shadow-none">
                     Registrera
                 </button> 
@@ -96,7 +96,7 @@ function Register() {
             </form>
         </div>
     </div>
-</div>
+</div> }
         </>
     )
 }

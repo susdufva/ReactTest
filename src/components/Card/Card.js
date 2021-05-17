@@ -1,7 +1,7 @@
 import React from 'react';
 
+function card( {productName, price, description, image} ) {
 
-function card( {productName, price, description, image}   ) {
     return (
         
         <>
@@ -19,7 +19,7 @@ function card( {productName, price, description, image}   ) {
             </div>
         <div className="flex item-center justify-evenly mt-3">
             <h1 className="text-gray-700 font-bold text-xl">{price}kr</h1>
-                <button className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Boka</button>
+                <a href="/Booked" className="px-3 py-1 bg-gray-800 text-white tracking-wider text-xs font-medium uppercase rounded hover:bg-gray-700">Boka</a>
             </div>
         </div>
         </div>

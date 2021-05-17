@@ -18,10 +18,15 @@ function UploadProduct() {
     }
 
     const [newProduct, setNewProduct] = useState(initialValue)
+    const [fileData, setFileData] = useState();
     const [confirm, setConfirm] = useState(false)
 
     function handleOnChange(e){
         setNewProduct({...newProduct, [e.target.name]:e.target.value})
+    }
+
+    function handleOnChangeImage(e){
+        setFileData(e.target.files[0])
     }
 
     function handleOnSubmit(e) {
@@ -35,7 +40,16 @@ function UploadProduct() {
             
         }).then ( response => {
            console.log(response.data);
+           const data = new FormData()
+            data.append("files", fileData)
+            data.append("ref", "product") //vilken collection tillhör bilden
+            data.append("refId", response.data.id) //vilken produkt tillhör bilden
+            data.append("field", "img") //vilken data i collection 
+            axios.post('http://localhost:1337/upload', data)
+         .then( (image)=> console.log(image))
+         .catch( (error)=> console.log(error))
            setConfirm(true)
+
         }) 
         .catch((error) => {console.log(error)}) 
     }
@@ -50,8 +64,10 @@ function UploadProduct() {
                 <input className="block w-full py-3 px-1 mt-2 text-gray-800 text-xs uppercase appearance-none border-b border-teal-500
                 focus:text-gray-500 focus:outline-none focus:border-gray-200" type="number" name="price" placeholder="pris" value={newProduct.price} onChange={handleOnChange} required />
                 <input className="block w-full py-3 px-1 mt-2 text-gray-800 text-xs uppercase appearance-none border-b border-teal-500
-                focus:text-gray-500 focus:outline-none focus:border-gray-200"  type="text" placeholder="Beskrivning" name="description" value={newProduct.description} 
-                    onChange={handleOnChange} aria-label="Full name" />
+                focus:text-gray-500 focus:outline-none focus:border-gray-200"  type="text" placeholder="Beskrivning" name="description" value={newProduct.description} onChange={handleOnChange} required />
+                
+                <input className="block w-full py-3 px-1 mt-2 text-gray-400 text-xs uppercase appearance-none border-b border-teal-500
+                focus:text-gray-500 focus:outline-none focus:border-gray-200"  type="file" name="file" id="" onChange={handleOnChangeImage} required />
                 
                 <div className="flex justify-end mt-8">
                     {button.map( (button)=> {

@@ -25,7 +25,7 @@ function CardList() {
     // useEffect för att kunna hämta data från database 
 
     return (
-        <div>
+        <div className="grid grid-cols-3 gap-2 mt-4">
             
              {products.map((product)=>{
                  return (
