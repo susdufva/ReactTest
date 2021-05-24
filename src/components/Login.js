@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios"
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import ForgotPW from "./ForgotPW"
 
 export default function Login() {
@@ -35,9 +35,11 @@ export default function Login() {
     .then(response =>{
 
       localStorage.setItem("jwt", response.data.jwt)
+      localStorage.setItem("userId", response.data.user.id)
+     
 
       console.log("inloggad: ", response.data);
-      setUsername(response.data.user.username)
+      //setUsername(response.data.user.username)
 
       history.push("/Bookingpage")
     

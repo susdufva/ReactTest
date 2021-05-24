@@ -1,6 +1,7 @@
 import React from 'react';
 
 function card( {productName, price, description, image} ) {
+    
 
     return (
         

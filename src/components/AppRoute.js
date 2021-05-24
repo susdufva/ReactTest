@@ -5,6 +5,7 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Homepage from "./Homepage";
 import Navbar from "./Navbar"
 import Massage from "./Card/Massage"
+//import FetchBookings from "./FetchBookings"
 import Booked from "./Booked"
 import Register from "./Register"
 import UploadProduct from "./UploadProduct"

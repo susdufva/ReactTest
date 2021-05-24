@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import Card from "./Card"
+//import Booked from "./Booked"
 
-
-function CardList() {
-
-    // useState for products 
+function FetchBookings() {
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
        
         const fecthProducts= async()=>{
-           const response =   await axios.get("http://localhost:1337/products")
+           const response = await axios.get("http://localhost:1337/products")
            console.log(response)
 
            setProducts(response.data)
@@ -19,23 +16,25 @@ function CardList() {
 
 
         fecthProducts();
-
+        console.log(products)
     }, [])
 
     // useEffect för att kunna hämta data från database 
 
     return (
-        <div className="grid grid-cols-3 gap-2 mt-4">
+        <div >
             
              {products.map((product)=>{
                  return (
                      <>
-                     <Card key={product.id} image={product.img}  productName={product.name}  price={product.price} description= {product.description} />
-                     </>
+                      {/* <Card key={product.id} image={product.img}  productName={product.name}  price={product.price} description= {product.description} /> 
+                     <Booked  key={product.id} products={product.name} />*/}
+                     </> 
                  )
              }) }
                
         </div>
     )
 }
-export default CardList
+
+export default FetchBookings

@@ -4,14 +4,17 @@ import Bookingcard from "./Bookingcard"
 
 
 function Bookinglist() {
-
-    // useState for products 
+ 
     const [bookings, setBookings] = useState([]);
+    const userId = localStorage.getItem("userId");
 
     useEffect(()=>{
+
+        console.log("userId", userId)
        
         const fecthBookings= async()=>{
-           const response =   await axios.get("http://localhost:1337/bookings")
+           const response =   await axios.get(`http://localhost:1337/bookings?users_permissions_user.id=${userId}`)
+           
            console.log(response)
 
            setBookings(response.data)
