@@ -2,12 +2,11 @@ import React, {useState} from 'react'
 import axios from "axios"
 import Button2 from "./Button2"
 import { Link } from 'react-router-dom'
-import "./Form.css";
+import "./Form.css"
 
 const button = [
     {button:"Ladda upp"},
 ]
-
 
 function UploadProduct() {
 
@@ -55,8 +54,12 @@ function UploadProduct() {
     }
     return (
         <>
-           <div className="Form">
-           {confirm ? <> <p className="text-gray-400 text-md uppercase">Uppladdningen lyckades! </p> <br/> <Link to="/" className="text-gray-500 uppercase font-semibold text-md">Tillbaka </Link>   </>:
+
+           {confirm ? <> 
+          <div className="text-gray-400 text-md uppercase mt-24 mb-1">Uppladdningen lyckades! </div> 
+          <Link className="text-center font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/"> Tillbaka</Link>
+           </> :
+          <div className="Form">
             <form className="w-full max-w-sm" onSubmit={handleOnSubmit}>
                 <label className="block w-full px-1 text-gray-400 text-xs uppercase text-left" >Produktnamn</label>
                 <input className="block w-full mt-0.5 text-gray-800 text-xs uppercase appearance-none border-b border-teal-500
@@ -76,10 +79,9 @@ function UploadProduct() {
                     } )}
                 </div> 
             </form>
+            </div>
             }
-        </div>
-
-     
+        
         </>
     )
 }

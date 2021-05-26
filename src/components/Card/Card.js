@@ -27,7 +27,7 @@ function Card( {productId, productName, price, description, image} ) {
     }
 
     async function handleOnSubmit(e) {
-        console.log(bookingValues.appointment, "userid:", userId)
+
         e.preventDefault();
         
         await axios.post('http://localhost:1337/bookings', {
@@ -36,7 +36,7 @@ function Card( {productId, productName, price, description, image} ) {
             mobile:Number(bookingValues.mobile),
             users_permissions_user: userId,
             product: productId
-            //promises iställer för async await
+            //userId från localstorage, product från props
         }).then ( (e)=> {if(e.data) history.push("/bookingpage")
             console.log(e)
             //localStorage.setItem("BookingID", response.data.id) 
@@ -45,7 +45,7 @@ function Card( {productId, productName, price, description, image} ) {
             setError("Något gick fel, vänligen försök igen")}) 
     } 
 
-    const customStyles = {
+    const customStyles = {  //style för modal
         content : {
           background: "white",
           height:"350px",
@@ -69,9 +69,8 @@ function Card( {productId, productName, price, description, image} ) {
     
 
     return (
-        
-        <>
-      
+        <> 
+        {/* Card med innehåll från databas och props*/}
         <div className="py-6 mx-8" >
             <div className="flex max-w-xs bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="w-1/2 bg-cover" > 
@@ -86,6 +85,7 @@ function Card( {productId, productName, price, description, image} ) {
             <h1 className="text-gray-700 font-bold text-xl">{price}kr</h1>
                 <button onClick={openModal} className="px-3 py-1 bg-gray-800 text-white tracking-wider text-xs font-medium uppercase rounded hover:bg-gray-700">Boka</button>
             </div>
+            {/* Modal för bokning med conditional rendering om man är inloggad */}
                 <Modal 
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -115,7 +115,7 @@ function Card( {productId, productName, price, description, image} ) {
                                 } )}
                             </div> 
                         </form>
-                    </div>  
+                    </div>   //Om man ej är inloggad
                     : <> <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs py-1 px-3 rounded-xl font-medium" onClick={closeModal}>X</button> <div className="block w-full  text-gray-500 text-xs uppercase font-medium mt-16 mb-2" >Du måste vara inloggad för att kunna göra en bokning </div>
                     <div><Link className="text-center font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/register"> Registrera dig  </Link> /<Link className="text-center m-2 font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/login">Logga in</Link> </div> </>}
                     </Modal>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Link, useHistory} from "react-router-dom";
 import Bookingpage from "./Bookingpage"
 
@@ -92,7 +92,6 @@ function Register() {
                     focus:outline-none hover:bg-gray-700 hover:shadow-none">
                     Registrera
                 </button> 
-                {/* rounded-lg */}
             </form>
         </div>
     </div>

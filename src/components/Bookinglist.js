@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Bookingcard from "./Bookingcard"
 
+//Hämtar bokningar från databasen och visar på den inloggade profilens sida
 
 function Bookinglist() {
  
@@ -16,10 +17,8 @@ function Bookinglist() {
            const response =   await axios.get(`http://localhost:1337/bookings?users_permissions_user.id=${userId}`)
            
            console.log(response)
-
            setBookings(response.data)
         }
-
 
         fecthBookings();
 
