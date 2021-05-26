@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios"
-import {useHistory} from "react-router-dom";
-import ForgotPW from "./ForgotPW"
+import {useHistory} from "react-router-dom"
 
 export default function Login() {
 
@@ -78,13 +77,12 @@ export default function Login() {
                         className="block w-full py-3 px-1 mt-2 
                         text-gray-800 text-xs uppercase appearance-none 
                         border-b-2 border-gray-100
-                        focus:text-gray-500 focus:outline-none focus:border-gray-200"
-                        required />
+                        focus:text-gray-500 focus:outline-none focus:border-gray-200" />
                     <input id="password" type="password" name="password" placeholder="lösenord" value={loginValue.password} onChange={handleOnChange}
                         className="block w-full py-3 px-1 mt-2 
                         text-gray-800 text-xs uppercase appearance-none 
                         border-b-2 border-gray-100
-                        focus:text-gray-500 focus:outline-none focus:border-gray-200" required/>
+                        focus:text-gray-500 focus:outline-none focus:border-gray-200" />
                     <button type="submit"
                         className="w-full py-3 mt-10 bg-gray-800 rounded-sm
                         font-medium text-white uppercase
@@ -92,9 +90,9 @@ export default function Login() {
                         Logga in
                     </button>
                     <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-xs text-center">
-                        <a href="#" onClick={reset} className="flex-2 font-medium text-indigo-800 hover:text-indigo-700">
+                        <button onClick={reset} className="flex-2 font-medium text-indigo-800 hover:text-indigo-700">
                             Glömt lösenord?
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>

@@ -1,41 +1,14 @@
 import React, {useState} from 'react'
-import Button2 from "./Button2"
 import Modal from "react-modal";
 import axios from "axios"
 
-const button = [
-    {button:"Ändra / Avboka"}
-]
-
-function Bookingcard( {appointment, date} ) { //lägg till key i prpos?
+function Bookingcard( {bookingId, appointment, date} ) { 
 
     const userId = localStorage.getItem("userId") 
-    const [modalIsOpen, setIsOpen] = useState(false);
-    
-
-    const customStyles = {
-        content : {
-          background: "white",
-          height:"300px",
-          top                   : '50%',
-          left                  : '50%',
-          right                 : 'auto',
-          bottom                : 'auto',
-          marginRight           : '-50%',
-          transform             : 'translate(-50%, -50%)'
-        }
-      };
-
-    function openModal() {
-        setIsOpen(true)
-    }
-
-    function closeModal() {
-        setIsOpen(false)
-    }
 
     function deleteBooking() {
-        axios.delete(`http://localhost:1337/bookings?  `)
+        axios.delete(`http://localhost:1337/bookings/${bookingId}`)
+        window.location.reload();
     }
 
     return (
@@ -57,33 +30,8 @@ function Bookingcard( {appointment, date} ) { //lägg till key i prpos?
                     <p className="block w-full py-3 px-0.5 mt-2 
                         text-gray-800 text-left text-xs uppercase appearance-none 
                         border-b-2 border-gray-100
-                        focus:text-gray-500 focus:outline-none focus:border-gray-200" > {date} </p>
-                  <div className="mt-8 text-sm" onClick={openModal}>
-                    {button.map( (button)=> {
-                        return ( 
-                        <Button2 button={button.button} /> ) 
-                    } )} 
-                    </div>
-                    <Modal 
-                        isOpen={modalIsOpen}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        contentLabel="Example Modal"
-                    >
-                        <div >
-
-                        <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs py-1 px-3 rounded-xl font-medium" onClick={closeModal}>X</button>
-                        
-                        <form className="flex flex-col"  >
-                            <label className="ml-3 mt-10 text-gray-400 text-xs uppercase"> Ändra tid:</label>
-                            <input className="flex bg-gray-200 m-2" type="datetime-local" name="name" />
-                            <button className="mt-6 bg-gray-700 hover:bg-gray-600 text-white text-sm py-1 px-5 rounded-sm font-medium" type="submit">Bekräfta ändring</button>
-                            <button className="mt-4 bg-gray-700 hover:bg-gray-600 text-white text-sm py-1 px-5 rounded-sm font-medium" onClick={deleteBooking}>Radera bokning</button>
-                        </form>
-                        
-                        </div>
-                    </Modal>
-                    
+                        focus:text-gray-500 focus:outline-none focus:border-gray-200">{date}</p>
+                        <button className="mt-4 w-full bg-gray-700 hover:bg-gray-600 text-white text-sm py-1 px-5 rounded-lg font-medium" onClick={deleteBooking}>Avboka</button>
                 </div>
             </div>
         </div>

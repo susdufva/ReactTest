@@ -5,8 +5,6 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Homepage from "./Homepage";
 import Navbar from "./Navbar"
 import Massage from "./Card/Massage"
-//import FetchBookings from "./FetchBookings"
-import Booked from "./Booked"
 import Register from "./Register"
 import UploadProduct from "./UploadProduct"
 
@@ -20,7 +18,6 @@ export default function AppRoute(){
         
         <Route path="/" exact component={Homepage} />
         <Route path="/massage" component={Massage} />
-        <Route path="/booked" component={Booked} />
         <Route path="/register" component={Register} />
         <Route exact path="/bookingpage" component={Bookingpage} />
         <Route path="/login" component={Login} />

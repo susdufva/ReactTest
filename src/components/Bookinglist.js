@@ -33,7 +33,7 @@ function Bookinglist() {
             
             {bookings.map((booking)=>{
                 return (
-                    <Bookingcard key={booking.id} appointment={booking.appointment}  date={booking.date} />
+                    <Bookingcard key={booking.id} bookingId={booking.id} appointment={booking.appointment}  date={booking.date} />
                 )
             }) }
               

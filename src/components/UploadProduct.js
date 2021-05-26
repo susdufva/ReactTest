@@ -70,9 +70,9 @@ function UploadProduct() {
                 focus:text-gray-500 focus:outline-none focus:border-gray-200"  type="file" name="file" id="" onChange={handleOnChangeImage} required />
                 
                 <div className="flex justify-end mt-8">
-                    {button.map( (button)=> {
+                    {button.map( (button, id)=> {
                         return ( 
-                        <Button2 button={button.button} /> ) 
+                        <Button2 key={id} button={button.button} /> ) 
                     } )}
                 </div> 
             </form>

@@ -1,16 +1,9 @@
 import React from 'react';
-import Button from "./Button"
 import "./Booking.css"
-import Button2 from "./Button2"
 import {useHistory} from "react-router-dom";
 import Bookinglist from "./Bookinglist"
 
-const button = [
-    {button:"Ändra / Avboka"} 
-]
-
 const jwt = localStorage.getItem("jwt")
-//const userId = localStorage.getItem("userId") tror inte jag behöver 
 
 function Bookingpage() {
 
