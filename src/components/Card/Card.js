@@ -117,7 +117,7 @@ function Card( {productId, productName, price, description, image} ) {
                         </form>
                     </div>  
                     : <> <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs py-1 px-3 rounded-xl font-medium" onClick={closeModal}>X</button> <div className="block w-full  text-gray-500 text-xs uppercase font-medium mt-16 mb-2" >Du måste vara inloggad för att kunna göra en bokning </div>
-                    <div><Link className="text-center m-3 font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/login"> Logga in</Link> </div> </>}
+                    <div><Link className="text-center font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/register"> Registrera dig  </Link> /<Link className="text-center m-2 font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/login">Logga in</Link> </div> </>}
                     </Modal>
         </div>
         </div>
