@@ -3,9 +3,6 @@ import Modal from "react-modal"
 import axios from "axios"
 import Button2 from "../Button2"
 import {useHistory, Link} from 'react-router-dom'
-import {loadStripe} from '@stripe/stripe-js'
-
-const stripePromise = loadStripe('pk_test_51Ix6VKGrcoIWM135GevI9SHxbf160SNLxwuTZREQgJ8rHosAFKq8DoHBaVZmc17zxtTZwPrCvNdlRl1EM8lWCZ3h00UacgPyVY');
 
 const button = [
     {button:"Boka"},
@@ -70,28 +67,6 @@ function Card( {productId, productName, price, description, image} ) {
         setIsOpen(false)
     }
     
-    const stripeClick = async (event) => {
-        // Get Stripe.js instance
-        const stripe = await stripePromise;
-    
-        // Call your backend to create the Checkout Session
-        const response = await axios.post("http://localhost:4242/create-checkout-session")
-    
-        const session = response.data.id
-        console.log(session)
-    
-        // When the customer clicks on the button, redirect them to Checkout.
-        const result = await stripe.redirectToCheckout({
-          sessionId: session,
-        });
-    
-        if (result.error) {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer
-          // using `result.error.message`.
-        }
-      };
-    
 
     return (
         <> 
@@ -109,9 +84,6 @@ function Card( {productId, productName, price, description, image} ) {
         <div className="flex item-center justify-evenly mt-3">
             <h1 className="text-gray-700 font-bold text-xl">{price}kr</h1>
                 <button onClick={openModal} className="px-3 py-1 bg-gray-800 text-white tracking-wider text-xs font-medium uppercase rounded hover:bg-gray-700">Boka</button>
-                <button role="link" onClick={stripeClick}>
-                    Checkout
-                </button>
             </div>
             {/* Modal för bokning med conditional rendering om man är inloggad */}
                 <Modal 
