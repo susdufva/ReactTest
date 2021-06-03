@@ -6,6 +6,7 @@ import Homepage from "./Homepage";
 import Navbar from "./Navbar"
 import Register from "./Register"
 import UploadProduct from "./UploadProduct"
+import Firebase from "./FirebaseData"
 
 export default function AppRoute(){
 
@@ -17,6 +18,7 @@ export default function AppRoute(){
         
         <Route path="/" exact component={Homepage} />
         <Route path="/register" component={Register} />
+        <Route path="/firebase" component={Firebase} />
         <Route exact path="/bookingpage" component={Bookingpage} />
         <Route path="/login" component={Login} />
         <Route path="/uploadproduct" component={UploadProduct} />

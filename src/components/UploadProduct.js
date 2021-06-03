@@ -54,7 +54,6 @@ function UploadProduct() {
     }
     return (
         <>
-
            {confirm ? <> 
           <div className="text-gray-400 text-md uppercase mt-24 mb-1">Uppladdningen lyckades! </div> 
           <Link className="text-center font-semibold text-sm text-gray-700 border-b-2 border-gray-200 hover:border-gray-500" to="/"> Tillbaka</Link>
