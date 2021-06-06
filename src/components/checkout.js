@@ -4,16 +4,16 @@ import {loadStripe} from '@stripe/stripe-js'
 
 const stripePromise = loadStripe('pk_test_51Ix6VKGrcoIWM135GevI9SHxbf160SNLxwuTZREQgJ8rHosAFKq8DoHBaVZmc17zxtTZwPrCvNdlRl1EM8lWCZ3h00UacgPyVY');
 
-function Checkout() {
+function Checkout({productName, price}) {
 
   useEffect(()=>{
 
-    const stripeClick = async (event) => {
+    const loadStripe = async (event) => {
         
         const stripe = await stripePromise;
     
         // axios request to create Checkout Session
-        const response = await axios.post("http://localhost:4242/create-checkout-session")
+        const response = await axios.post("http://localhost:4242/create-checkout-session", {name:productName, price:price})
     
         const session = response.data.id
         console.log(session)
@@ -32,7 +32,7 @@ function Checkout() {
         }
       
       }
-        stripeClick();
+      loadStripe();
 
       }, [])
 

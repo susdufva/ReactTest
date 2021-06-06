@@ -3,6 +3,9 @@ import Modal from "react-modal"
 import axios from "axios"
 import Button2 from "../Button2"
 import {useHistory, Link} from 'react-router-dom'
+import {loadStripe} from '@stripe/stripe-js'
+
+const stripePromise = loadStripe('pk_test_51Ix6VKGrcoIWM135GevI9SHxbf160SNLxwuTZREQgJ8rHosAFKq8DoHBaVZmc17zxtTZwPrCvNdlRl1EM8lWCZ3h00UacgPyVY');
 
 const button = [
     {button:"Boka"},
@@ -37,10 +40,11 @@ function Card( {productId, productName, price, description, image} ) {
             users_permissions_user: userId,
             product: productId
             //userId från localstorage, product från props
-        }).then ( (e)=> {if(e.data) history.push("/bookingpage")
+        }).then ( (e)=> //{if(e.data) history.push("/bookingpage")
             console.log(e)
             //localStorage.setItem("BookingID", response.data.id) 
-        }) 
+        //}
+        ) 
         .catch((error) => {console.log(error.response);
             setError("Något gick fel, vänligen försök igen")}) 
     } 
@@ -67,6 +71,30 @@ function Card( {productId, productName, price, description, image} ) {
         setIsOpen(false)
     }
     
+    const loadStripe = async (event) => {
+        
+        const stripe = await stripePromise;
+    
+        // axios request to create Checkout Session
+        const response = await axios.post("http://localhost:4242/create-checkout-session", {name:productName, price:price})
+    
+        const session = response.data.id
+        console.log(session)
+    
+        //useEffect to render Checkout.
+        const result = await stripe.redirectToCheckout({
+          sessionId: session,
+        });
+
+        //if (sessionId) {history.push}
+    
+        if (result.error) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer
+          // using `result.error.message`.
+        }
+      
+      }
 
     return (
         <> 
@@ -107,8 +135,10 @@ function Card( {productId, productName, price, description, image} ) {
                             <input className="leading-loose text-pink-600 top-0 mt-3" type="checkbox"/>
                             <span className="ml-2 text-xs py-2 text-gray-600 text-left lowercase">Acceptera<a href="#" className="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500"> Bokningsvillkor </a>  </span>
                             </p>
-                            {error}
-                            <div className="flex justify-end mt-7">
+                            <div className="text-xs mt-2">
+                                {error}
+                            </div>
+                            <div className="flex justify-end mt-7" onClick={loadStripe}>
                                 {button.map( (button, id)=> {
                                     return ( 
                                     <Button2 key={id} button={button.button} /> ) 
