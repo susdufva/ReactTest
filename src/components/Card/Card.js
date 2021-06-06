@@ -104,11 +104,11 @@ function Card( {productId, productName, price, description, image} ) {
                             focus:text-gray-500 focus:outline-none focus:border-gray-200"  type="number" placeholder="Mobilnummer" name="mobile" value={bookingValues.mobile} onChange={handleOnChange} required />
                             <p className="block w-full border-b border-teal-500" ></p>
                             <p>
-                            <input className="leading-loose text-pink-600 top-0" type="checkbox"/>
+                            <input className="leading-loose text-pink-600 top-0 mt-3" type="checkbox"/>
                             <span className="ml-2 text-xs py-2 text-gray-600 text-left lowercase">Acceptera<a href="#" className="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500"> Bokningsvillkor </a>  </span>
                             </p>
                             {error}
-                            <div className="flex justify-end mt-6">
+                            <div className="flex justify-end mt-7">
                                 {button.map( (button, id)=> {
                                     return ( 
                                     <Button2 key={id} button={button.button} /> ) 
