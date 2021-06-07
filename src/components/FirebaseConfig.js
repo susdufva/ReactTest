@@ -3,14 +3,14 @@ import firebase from "firebase"
 
 dotenv.config();
 
-console.log(process.env.REACT_APIKEY)
+console.log(process.env.REACT_APP_APIKEY)
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDE2FzNwHMF8_JDKDlovc0xLDhNVC23GYc",
-    authDomain: "bookingproject-b8f14.firebaseapp.com",
-    projectId: "bookingproject-b8f14",
-    storageBucket: "bookingproject-b8f14.appspot.com",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
     messagingSenderId: "574355717021",
     appId: "1:574355717021:web:664e935880a59dd6b28d74"
   };

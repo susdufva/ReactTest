@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import "./Tailwind.css"
 
 
+
 function Navbar() {
+    const adminRole = localStorage.getItem("admin")
+    console.log("local värde", adminRole)
+    const [admin, setAdmin] = useState(false)
+
+    useEffect(()=>{
+        if(adminRole==='true'){
+            setAdmin(true);
+        }
+          
+      }, [])
+      console.log("nytt värde", admin)
+
     return (
     <>
         <nav className="bg-gray-800">
@@ -15,14 +28,12 @@ function Navbar() {
                     </div>
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                
-                {/* <img className="hidden lg:block h-8 w-auto" src="/TWlogo.jpg" alt="Workflow"/> */}
                     </div>
                 <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
                         <Link to="/" className=" text-white px-3 py-0 rounded-md text-xl font-medium" >BOKA.SE</Link>
-                        
-                        <Link to="/uploadproduct" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base  font-medium">Ladda upp</Link>
+                        { admin === true && 
+                        <Link to="/uploadproduct" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base  font-medium">Ladda upp</Link> } 
                         <Link to="/register" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-1 rounded-md text-base font-medium">Mina sidor</Link>
                     </div>
                 </div>

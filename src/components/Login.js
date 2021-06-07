@@ -35,6 +35,7 @@ export default function Login() {
 
       localStorage.setItem("jwt", response.data.jwt)
       localStorage.setItem("userId", response.data.user.id)
+      localStorage.setItem("admin", response.data.user.admin)
      
 
       console.log("inloggad: ", response.data);

@@ -12,6 +12,7 @@ function Bookingpage() {
 function Logout(){
   localStorage.removeItem("jwt");
   localStorage.removeItem("userId");
+  localStorage.removeItem("admin");
   history.push("/")
 
 }
