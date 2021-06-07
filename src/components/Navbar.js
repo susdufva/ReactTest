@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import "./Tailwind.css"
 
 
-
 function Navbar() {
     const adminRole = localStorage.getItem("admin")
     console.log("local värde", adminRole)
@@ -13,7 +12,7 @@ function Navbar() {
         if(adminRole==='true'){
             setAdmin(true);
         }
-          
+         
       }, [])
       console.log("nytt värde", admin)
 
