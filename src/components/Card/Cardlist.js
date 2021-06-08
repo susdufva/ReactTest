@@ -26,7 +26,6 @@ function CardList() {
         console.log("längd", products.length)
 
         let dynamicPage = loadPage + 6;
-        console.log("load more", loadPage)
         setLoadPage(dynamicPage)
     }
 
