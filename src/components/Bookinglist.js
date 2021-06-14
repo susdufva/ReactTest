@@ -28,7 +28,7 @@ function Bookinglist() {
 
     return (
         <>
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center">
             
             {bookings.map((booking)=>{
                 return (

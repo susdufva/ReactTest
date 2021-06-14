@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Modal from "react-modal"
 import axios from "axios"
 import Button2 from "../Button2"
@@ -20,7 +20,7 @@ function Card( {productId, productName, price, description, image} ) {
 
     const [modalIsOpen, setIsOpen] = useState(false)
     const [bookingValues, setBookingValues] = useState(initialValue)
-    const history = useHistory()
+    //const history = useHistory()
     const userId = localStorage.getItem("userId")
     const [error, setError] = useState("")
 

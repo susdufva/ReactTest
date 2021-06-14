@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import axios from "axios"
 
-function Bookingcard( {bookingId, appointment, date} ) { 
-
-    const userId = localStorage.getItem("userId") 
+function Bookingcard( {bookingId, appointment, date} ) {  
 
     function deleteBooking() {
         axios.delete(`http://localhost:1337/bookings/${bookingId}`)

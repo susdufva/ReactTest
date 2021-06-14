@@ -11,7 +11,6 @@ export default function Login() {
 
   const [loginValue, setLoginValue] = useState(initialValue)
   const [error, setError] = useState("")
-  const [username, setUsername] = useState("")
   const [jwt, setJwt] = useState("")
   const history = useHistory();
 
@@ -36,10 +35,9 @@ export default function Login() {
       localStorage.setItem("jwt", response.data.jwt)
       localStorage.setItem("userId", response.data.user.id)
       localStorage.setItem("admin", response.data.user.admin)
-     
+      localStorage.setItem("username", response.data.user.username)
 
       console.log("inloggad: ", response.data);
-      //setUsername(response.data.user.username)
 
       history.push("/Bookingpage")
     
