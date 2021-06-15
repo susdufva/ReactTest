@@ -1,5 +1,5 @@
 import React from "react";
-import Bookingpage from "./Bookingpage";
+import Bookingpage from "./booking/Bookingpage";
 import Login from "./Login";
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Homepage from "./Homepage";
