@@ -6,7 +6,7 @@ import Modal from "react-modal"
 const username = localStorage.getItem("username")
 console.log(username)
 
-function ProfileSidebar() {
+function ProfileSidebar({userId, picture}) {
 
     const history = useHistory()
     const [fileData, setFileData] = useState()
@@ -68,9 +68,8 @@ function ProfileSidebar() {
         <div className="flex flex-col min-h-screen w-56 shadow-md mt-1 bg-white rounded-r-3xl overflow-hidden">
             <div className="flex items-center justify-center h-28 shadow-md">
                 <div className="w-1/2">
-                    <img
-                    src="https://randomuser.me/api/portraits/women/27.jpg"
-                    className="mx-auto w-20 h-20 rounded-full"
+                    <img className="mx-auto w-20 h-20 rounded-full" src={`http://localhost:1337${picture.formats.thumbnail.url}`} alt="profilepicture"
+                    
                     />
                 </div>
                     <span className="font-semibold text-sm uppercase text-gray-800">{username}</span>  
@@ -108,9 +107,10 @@ function ProfileSidebar() {
                     contentLabel="Example Modal"
                     >
             
-            <div className="block w-full px-1 text-gray-600 text-sm uppercase ">   
-                    <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs py-0.5 px-2 rounded-xl font-normal" onClick={closeModal}>X</button>
-               <form className="mt-8"onSubmit={handleOnSubmit}>
+            <div className="block w-full px-1 text-gray-600 text-sm ">   
+                    <button className="mb-8 bg-gray-700 hover:bg-gray-600 text-white text-xs py-0.5 px-2 rounded-xl font-normal" onClick={closeModal}>X</button>
+                    <p>Ladda upp din profilbild:</p>
+               <form className="mt-3"onSubmit={handleOnSubmit}>
                    <input type="file" name="file" id="" onChange={handleImage}></input>
                    <button className="mt-6 px-3 py-1 bg-gray-700 text-white text-xs tracking-wider font-medium rounded-lg hover:bg-gray-800" type="submit">Ladda upp</button>
                </form>

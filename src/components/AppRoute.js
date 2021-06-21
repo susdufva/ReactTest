@@ -16,7 +16,7 @@ export default function AppRoute(){
     <Router>
         <Navbar/>
     <Switch>
-        
+       
         <Route path="/" exact component={Homepage} />
         <Route path="/register" component={Register} />
         <Route path="/firebase" component={Firebase} />
