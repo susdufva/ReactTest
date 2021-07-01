@@ -40,7 +40,7 @@ export default function Login() {
       console.log("inloggad: ", response.data);
 
       history.push("/Bookingpage")
-    
+      window.location.reload();
     })
     .catch( (err)=> {console.log(err); 
       setError("Fel användarnamn eller lösenord")})

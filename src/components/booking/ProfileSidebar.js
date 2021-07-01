@@ -17,6 +17,7 @@ function ProfileSidebar({ picture}) {
     function Logout(){
       localStorage.clear()
       history.push("/")
+      window.location.reload();
     }
 
     function handleImage(e){
