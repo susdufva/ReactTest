@@ -6,12 +6,13 @@ import Modal from "react-modal"
 const username = localStorage.getItem("username")
 console.log(username)
 
-function ProfileSidebar({userId, picture}) {
+function ProfileSidebar({ picture}) {
 
     const history = useHistory()
     const [fileData, setFileData] = useState()
     const [id] = localStorage.getItem("userId")
     const [modalIsOpen, setIsOpen] = useState(false)
+    const [confirm, setConfirm] = useState("")
 
     function Logout(){
       localStorage.clear()
@@ -33,7 +34,7 @@ function ProfileSidebar({userId, picture}) {
             axios.post('http://localhost:1337/upload', data)
             .then(res => {
                 console.log("res", res)
-                
+                setConfirm("Din bild har laddats upp")
             })
         
     }
@@ -60,6 +61,12 @@ function ProfileSidebar({userId, picture}) {
         setIsOpen(false)
     }
     
+    function deleteUser() {
+        axios.delete(`http://localhost:1337/users/${id}`)
+        localStorage.clear()
+        history.push("/")
+    }
+    
     return (
         <>
           
@@ -67,11 +74,13 @@ function ProfileSidebar({userId, picture}) {
         <div className="flex flex-row bg-gray-50">
         <div className="flex flex-col min-h-screen w-56 shadow-md mt-1 bg-white rounded-r-3xl overflow-hidden">
             <div className="flex items-center justify-center h-28 shadow-md">
+                {
+                    picture ? 
                 <div className="w-1/2">
-                    <img className="mx-auto w-20 h-20 rounded-full" src={`http://localhost:1337${picture.formats.thumbnail.url}`} alt="profilepicture"
-                    
-                    />
+                    <img className="mx-auto w-20 h-20 rounded-full" src={`http://localhost:1337${picture.formats.thumbnail.url}`} alt="profilepicture"/>
                 </div>
+                : null
+                }
                     <span className="font-semibold text-sm uppercase text-gray-800">{username}</span>  
             </div>
             <ul className="flex flex-col py-4">
@@ -90,7 +99,7 @@ function ProfileSidebar({userId, picture}) {
             <li>
                 <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i className="bx bx-chat"></i></span>
-                <span className="text-sm font-medium">Chat</span>
+                <span className="text-sm font-medium">Kontakt</span>
                 </a>
             </li>
             
@@ -114,6 +123,7 @@ function ProfileSidebar({userId, picture}) {
                    <input type="file" name="file" id="" onChange={handleImage}></input>
                    <button className="mt-6 px-3 py-1 bg-gray-700 text-white text-xs tracking-wider font-medium rounded-lg hover:bg-gray-800" type="submit">Ladda upp</button>
                </form>
+               <p className="mt-2">{confirm}</p>
                </div>
             </Modal>
             <li>
@@ -127,11 +137,10 @@ function ProfileSidebar({userId, picture}) {
                 </a>
             </li>
             <li>
-                <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                <button onClick={deleteUser} className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i className="bx bx-bell"></i></span>
                 <span className="text-sm font-medium text-red-500">Radera konto</span>
-                
-                </a>
+                </button>
             </li>
             <li>
                 <a onClick={Logout} className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">

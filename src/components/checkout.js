@@ -33,7 +33,7 @@ function Checkout({productName, price}) {
       
       }
       loadStripe();
-
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
 
     return (

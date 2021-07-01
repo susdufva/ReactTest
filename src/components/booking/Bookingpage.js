@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Booking.css"
 import Bookinglist from "./Bookinglist"
-import Profile from "./ProfileSidebar"
+import Profile from "./Picturefetch"
 
 const jwt = localStorage.getItem("jwt")
 const userId = localStorage.getItem("userId")

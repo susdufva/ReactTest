@@ -3,6 +3,8 @@ import axios from "axios"
 
 function Bookingcard( {bookingId, appointment, date} ) {  
 
+    console.log("bokning", appointment)
+
     function deleteBooking() {
         axios.delete(`http://localhost:1337/bookings/${bookingId}`)
         window.location.reload();

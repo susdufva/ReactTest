@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
-import Profile from "./ProfileSidebar"
+
 
 function ProfilepictureFetch() {
 
-    const [pictures, setPictures] = useState([])
+    const [pictures, setPictures] = useState([]);
     const userId = localStorage.getItem("userId")
 
     useEffect(()=>{
@@ -18,18 +18,17 @@ function ProfilepictureFetch() {
         }
 
         fecthPictures();
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <>
             <div className="">
-            
             {pictures.map((user)=>{
-                return (
-                    <Profile key={user.id} userId={user.id} picture={user.image}   />
+                return(
+                    <ProfileSidebar key={user.id} id={user.id} picture={user.image} />
                 )
-            }) }
+            })}
               
        </div> 
         </>

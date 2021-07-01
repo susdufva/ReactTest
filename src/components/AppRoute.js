@@ -8,6 +8,8 @@ import Register from "./Register"
 import UploadProduct from "./UploadProduct"
 import Firebase from "./FirebaseData"
 import Checkout from "./checkout"
+import PictureFetch from "./booking/Picturefetch"
+import Bookinglist from "./booking/Bookinglist"
 
 export default function AppRoute(){
 
@@ -16,7 +18,9 @@ export default function AppRoute(){
     <Router>
         <Navbar/>
     <Switch>
-       
+        <Route path="/picture" component={PictureFetch} />
+        <Route path="/list" component={Bookinglist} />
+
         <Route path="/" exact component={Homepage} />
         <Route path="/register" component={Register} />
         <Route path="/firebase" component={Firebase} />
