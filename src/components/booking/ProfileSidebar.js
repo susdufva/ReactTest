@@ -81,7 +81,9 @@ function ProfileSidebar({ picture}) {
                 <div className="w-1/2">
                     <img className="mx-auto w-20 h-20 rounded-full" src={`http://localhost:1337${picture.formats.thumbnail.url}`} alt="profilepicture"/>
                 </div>
-                : null
+                : <div className="w-1/2">
+                    <img className="mx-auto w-20 h-20 rounded-full" src={require("../img/profil.png").default} alt="profilenull" /> 
+                    </div>
                 }
                     <span className="font-semibold text-sm uppercase text-gray-800">{username}</span>  
             </div>

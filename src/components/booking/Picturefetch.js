@@ -11,7 +11,7 @@ function Picturefetch() {
     useEffect(()=>{
 
         const fetchPictures = async()=>{
-            
+
             const response = await axios.get(`http://localhost:1337/users/${userId}`)
             
             console.log("res", response);
@@ -20,7 +20,7 @@ function Picturefetch() {
         fetchPictures();
     }, [])
 
-    return picture ? <ProfileSidebar picture={picture} /> : null
+    return picture ? <ProfileSidebar picture={picture} /> : <ProfileSidebar/>
 }
 
 export default Picturefetch
