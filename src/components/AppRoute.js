@@ -10,7 +10,6 @@ import Firebase from "./FirebaseData"
 import Checkout from "./checkout"
 import Contact from "./booking/Contact"
 import UpdateProfile from "./booking/UpdateProfile";
-import Profilefetch from "./booking/Profilefetch";
 
 export default function AppRoute(){
 
@@ -20,7 +19,6 @@ export default function AppRoute(){
         <Navbar/>
     <Switch>
         <Route path="/" exact component={Homepage} />
-        <Route path="/profile" component={Profilefetch} />
         <Route path="/updateprofile" component={UpdateProfile} />
         <Route path="/register" component={Register} />
         <Route path="/contact" component={Contact} />
