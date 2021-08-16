@@ -10,6 +10,7 @@ import Firebase from "./FirebaseData"
 import Checkout from "./checkout"
 import Contact from "./booking/Contact"
 import UpdateProfile from "./booking/UpdateProfile";
+import Dashboard from "./booking/Dashboard";
 
 export default function AppRoute(){
 
@@ -20,6 +21,7 @@ export default function AppRoute(){
     <Switch>
         <Route path="/" exact component={Homepage} />
         <Route path="/updateprofile" component={UpdateProfile} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/register" component={Register} />
         <Route path="/contact" component={Contact} />
         <Route path="/firebase" component={Firebase} />

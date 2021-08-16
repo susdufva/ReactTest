@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios"
 import Modal from "react-modal"
-import Contact from "./Contact"
-import UpdateProfile from './UpdateProfile';
 
 const username = localStorage.getItem("username")
 console.log(username)
@@ -15,6 +13,8 @@ function ProfileSidebar({ picture}) {
     const [id] = localStorage.getItem("userId")
     const [modalIsOpen, setIsOpen] = useState(false)
     const [confirm, setConfirm] = useState("")
+    const adminRole = localStorage.getItem("admin")
+    const [admin, setAdmin] = useState(false)
 
     function Logout(){
       localStorage.clear()
@@ -69,6 +69,13 @@ function ProfileSidebar({ picture}) {
         localStorage.clear()
         history.push("/")
     }
+
+    useEffect(()=>{
+        if(adminRole==='true'){
+            setAdmin(true);
+        }
+         
+      }, [])
     
     return (
         <>
@@ -89,18 +96,14 @@ function ProfileSidebar({ picture}) {
                     <span className="font-semibold text-sm uppercase text-gray-800">{username}</span>  
             </div>
             <ul className="flex flex-col py-4">
+            { admin === true && 
             <li>
-                <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                <Link to="/dashboard" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i className="bx bx-home"></i></span>
                 <span className="text-sm font-medium">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href={<Contact/>} className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i className="bx bx-shopping-bag"></i></span>
-                <span className="text-sm font-medium">Shopping</span>
-                </a>
-            </li>
+                </Link> 
+            </li> } 
+                {/* Dashboard syns bara för admin användare */}
             <li>
                 <Link to="/contact" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i className="bx bx-chat"></i></span>
