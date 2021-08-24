@@ -34,7 +34,7 @@ function ProfileSidebar({ picture}) {
             data.append("refId", id) //vilken användare tillhör bilden
             data.append("source", "users-permissions")
             data.append("field", "image") //vilket fält i collection
-            axios.post('http://localhost:1337/upload', data)
+            axios.post('https://strapi-booking3.herokuapp.com/upload', data)
             .then(res => {
                 console.log("res", res)
                 setConfirm("Din bild har laddats upp")
@@ -65,7 +65,7 @@ function ProfileSidebar({ picture}) {
     }
     
     function deleteUser() {
-        axios.delete(`http://localhost:1337/users/${id}`)
+        axios.delete(`https://strapi-booking3.herokuapp.com/users/${id}`)
         localStorage.clear()
         history.push("/")
     }
@@ -87,7 +87,7 @@ function ProfileSidebar({ picture}) {
                 {
                     picture ? 
                 <div className="w-1/2">
-                    <img className="mx-auto w-20 h-20 rounded-full" src={`http://localhost:1337${picture.formats.thumbnail.url}`} alt="profilepicture"/>
+                    <img className="mx-auto w-20 h-20 rounded-full" src={`https://strapi-booking3.herokuapp.com${picture.formats.thumbnail.url}`} alt="profilepicture"/>
                 </div>
                 : <div className="w-1/2">
                     <img className="mx-auto w-20 h-20 rounded-full" src={require("../img/profil.png").default} alt="profilenull" /> 

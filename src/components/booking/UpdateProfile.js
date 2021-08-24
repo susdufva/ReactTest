@@ -16,7 +16,7 @@ function UpdateProfile({ picture}) {
       const [userid] = localStorage.getItem("userId")
 
       useEffect(() => {
-        axios.get(`http://localhost:1337/users/${userid}`)
+        axios.get(`https://strapi-booking3.herokuapp.com/users/${userid}`)
         .then(res => {
             setNewValue({
                 username: res.data.username,
@@ -34,7 +34,7 @@ function UpdateProfile({ picture}) {
       function handleOnSubmit(e){
         e.preventDefault();
     
-        axios.put(`http://localhost:1337/users/${userid}`, 
+        axios.put(`https://strapi-booking3.herokuapp.com/users/${userid}`, 
             newValue
         ).then((response) =>{
             console.log("nytt namn: ", response.data);

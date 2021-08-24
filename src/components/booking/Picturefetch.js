@@ -12,7 +12,7 @@ function Picturefetch() {
 
         const fetchPictures = async()=>{
 
-            const response = await axios.get(`http://localhost:1337/users/${userId}`)
+            const response = await axios.get(`https://strapi-booking3.herokuapp.com/users/${userId}`)
             
             console.log("res", response);
             setPicture(response.data.image);

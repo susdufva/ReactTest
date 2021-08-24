@@ -32,7 +32,7 @@ function UploadProduct() {
         
         e.preventDefault();
     
-        axios.post('http://localhost:1337/products', {
+        axios.post('https://strapi-booking3.herokuapp.com/products', {
             name: newProduct.name,
             price: newProduct.price,
             description: newProduct.description,
@@ -44,7 +44,7 @@ function UploadProduct() {
             data.append("ref", "product") //vilken collection tillhör bilden
             data.append("refId", response.data.id) //vilken produkt tillhör bilden
             data.append("field", "img") //vilken data i collection 
-            axios.post('http://localhost:1337/upload', data)
+            axios.post('https://strapi-booking3.herokuapp.com/upload', data)
          .then( (image)=> console.log(image))
          .catch( (error)=> console.log(error))
            setConfirm(true)
