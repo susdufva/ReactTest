@@ -26,7 +26,7 @@ export default function Login() {
   function handleOnSubmit(e){
     e.preventDefault();
 
-    axios.post('http://localhost:1337/auth/local', {
+    axios.post('https://strapi-booking3.herokuapp.com/auth/local', {
       identifier: loginValue.email,
       password: loginValue.password
     })
@@ -48,7 +48,7 @@ export default function Login() {
 
   function reset(){  //reset password, onclick function
         
-    axios.post('http://localhost:1337/auth/forgot-password', {
+    axios.post('https://strapi-booking3.herokuapp.com/auth/forgot-password', {
         email: loginValue.email
     })
     .then(response => {

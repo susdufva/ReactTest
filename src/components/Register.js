@@ -25,7 +25,7 @@ function Register() {
         
         e.preventDefault();
         // vi ska skicka user registration data till strapi / endpoint 
-        axios.post('http://localhost:1337/auth/local/register', {
+        axios.post('https://strapi-booking3.herokuapp.com/auth/local/register', {
             username: registerValues.username,
             email: registerValues.email,
             password: registerValues.password,

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Modal from "react-modal"
 import axios from "axios"
 import Button2 from "../Button2"
-import {useHistory, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 
 const stripePromise = loadStripe('pk_test_51Ix6VKGrcoIWM135GevI9SHxbf160SNLxwuTZREQgJ8rHosAFKq8DoHBaVZmc17zxtTZwPrCvNdlRl1EM8lWCZ3h00UacgPyVY');
@@ -20,7 +20,6 @@ function Card( {productId, productName, price, description, image} ) {
 
     const [modalIsOpen, setIsOpen] = useState(false)
     const [bookingValues, setBookingValues] = useState(initialValue)
-    //const history = useHistory()
     const userId = localStorage.getItem("userId")
     const [error, setError] = useState("")
 
@@ -33,7 +32,7 @@ function Card( {productId, productName, price, description, image} ) {
 
         e.preventDefault();
         
-        await axios.post('http://localhost:1337/bookings', {
+        await axios.post('https://strapi-booking3.herokuapp.com/bookings', {
             appointment: productName,
             date: bookingValues.date,
             mobile:Number(bookingValues.mobile),
@@ -102,7 +101,7 @@ function Card( {productId, productName, price, description, image} ) {
         <div className="py-6 mx-8" >
             <div className="flex max-w-xs bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="w-1/2 bg-cover" > 
-                 <img className="h-44" src={`http://localhost:1337${image.formats.thumbnail.url}`} alt="image from database"/> 
+                 <img className="h-44" src={`https://strapi-booking3.herokuapp.com/${image.formats.thumbnail.url}`}/> 
                 </div> 
             <div className="w-2/3 p-3">
         <h1 className="text-gray-900 font-bold text-2xl">{productName}</h1>
