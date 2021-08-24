@@ -12,7 +12,7 @@ function CardList() {
     useEffect(()=>{
        // useEffect för att kunna hämta data från database 
         const fecthProducts= async()=>{
-           const response = await axios.get(`http://localhost:1337/products?_limit=${loadPage}`)
+           const response = await axios.get(`https://strapi-booking3.herokuapp.com/products?_limit=${loadPage}`)
            console.log(response)
 
            setProducts(response.data)
