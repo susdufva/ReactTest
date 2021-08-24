@@ -12,7 +12,7 @@ function ProfileSidebar({ picture}) {
     const [fileData, setFileData] = useState()
     const [id] = localStorage.getItem("userId")
     const [modalIsOpen, setIsOpen] = useState(false)
-    //const [confirm, setConfirm] = useState("")
+    const [confirm, setConfirm] = useState("")
     const adminRole = localStorage.getItem("admin")
     const [admin, setAdmin] = useState(false)
 
@@ -37,8 +37,7 @@ function ProfileSidebar({ picture}) {
             axios.post('https://strapi-booking3.herokuapp.com/upload', data)
             .then(res => {
                 console.log("res", res)
-                //setConfirm("Din bild har laddats upp")
-                window.location.reload();
+                setConfirm("Din bild har laddats upp")
             })
         
     }
@@ -132,7 +131,7 @@ function ProfileSidebar({ picture}) {
                    <input type="file" name="file" id="" onChange={handleImage}></input>
                    <button className="mt-6 px-3 py-1 bg-gray-700 text-white text-xs tracking-wider font-medium rounded-lg hover:bg-gray-800" type="submit">Ladda upp</button>
                </form>
-               {/* <p className="mt-2">{confirm}</p> */}
+               <p className="mt-2">{confirm}</p>
                </div>
             </Modal>
             <li>
