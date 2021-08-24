@@ -101,7 +101,7 @@ function Card( {productId, productName, price, description, image} ) {
         <div className="py-6 mx-8" >
             <div className="flex max-w-xs bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="w-1/2 bg-cover" > 
-                 <img className="h-44" src={`https://strapi-booking3.herokuapp.com/${image.formats.thumbnail.url}`}/> 
+                 <img className="h-44" src={`https://strapi-booking3.herokuapp.com${image.formats.thumbnail.url}`}/> 
                 </div> 
             <div className="w-2/3 p-3">
         <h1 className="text-gray-900 font-bold text-2xl">{productName}</h1>
