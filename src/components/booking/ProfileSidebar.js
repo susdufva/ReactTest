@@ -132,7 +132,7 @@ function ProfileSidebar({ picture}) {
                    <input type="file" name="file" id="" onChange={handleImage}></input>
                    <button className="mt-6 px-3 py-1 bg-gray-700 text-white text-xs tracking-wider font-medium rounded-lg hover:bg-gray-800" type="submit">Ladda upp</button>
                </form>
-               <p className="mt-2">{confirm}</p>
+               {/* <p className="mt-2">{confirm}</p> */}
                </div>
             </Modal>
             <li>
