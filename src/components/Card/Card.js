@@ -75,7 +75,7 @@ function Card( {productId, productName, price, description, image} ) {
         const stripe = await stripePromise;
     
         // axios request to create Checkout Session
-        const response = await axios.post("http://localhost:4242/create-checkout-session", {name:productName, price:price})
+        const response = await axios.post("https://stripe-booking3.herokuapp.com/create-checkout-session", {name:productName, price:price})
     
         const session = response.data.id
         console.log(session)
