@@ -65,9 +65,12 @@ function ProfileSidebar({ picture}) {
     }
     
     function deleteUser() {
-        axios.delete(`https://strapi-booking3.herokuapp.com/users/${id}`)
-        localStorage.clear()
-        history.push("/")
+        if (window.confirm("Är du säker på att du vill radera konto?")) {
+            
+            axios.delete(`https://strapi-booking3.herokuapp.com/users/${id}`)
+            localStorage.clear()
+            history.push("/")
+        }
     }
 
     useEffect(()=>{
