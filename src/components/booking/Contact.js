@@ -24,7 +24,7 @@ function Contact() {
         
         e.preventDefault();
         // vi ska skicka user registration data till strapi / endpoint 
-        axios.post('https://reactigen.herokuapp.com/contacts', {
+        axios.post('https://strapi-booking3.herokuapp.com/contacts', {
             name: registerValues.name,
             email: registerValues.email,
             message: registerValues.message,
