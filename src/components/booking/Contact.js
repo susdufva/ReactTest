@@ -23,12 +23,12 @@ function Contact() {
     function handleOnSubmit(e) {
         
         e.preventDefault();
-        // vi ska skicka user registration data till strapi / endpoint 
+        
         axios.post('https://strapi-booking3.herokuapp.com/contacts', {
             name: registerValues.name,
             email: registerValues.email,
             message: registerValues.message,
-            //promises iställer för async await
+            
         }).then ( (e)=> {
             console.log("message", e);
             if(e.data) setSucsess("Tack! Ditt meddelande har skickats")
