@@ -70,7 +70,7 @@ function Contact() {
                     border-b-2 border-gray-100
                     focus:text-gray-500 focus:outline-none focus:border-gray-200"
                     required/>
-                <p className="text-sm mt-4 text-gray-800 text-center">{sucsess}</p>
+                <p className="text-sm mt-4 text-gray-800 text-center font-medium">{sucsess}</p>
             <div className="flex justify-start">
                 <label className="block text-gray-500 font-bold my-4 flex items-center mt-7">
                     <input className="leading-loose text-pink-600 top-0" type="checkbox"/>
